@@ -143,7 +143,7 @@ function renderPortfolio(event, users, stocks) {
     }
   });
 }
-...
+
   // Register the event listener on the delete button
   deleteButton.addEventListener('click', (event) => {
     // we don't want the form to submit (since we will lose form state)
@@ -157,6 +157,40 @@ function renderPortfolio(event, users, stocks) {
     // render the user list
     generateUserList(userData, stocksData);
   });
+ /**
+ * Loops through the users and renders a ul with li elements for each user
+ * @param {*} users 
+ */
+function generateUserList(users, stocks) {
+  // get the list element and for each user create a list item and append it to the list
+  const userList = document.querySelector('.user-list');
+  // clear out the list from previous render
+  userList.innerHTML = '';
+  // .. rest of function
+}
+// Register the event listener on the save button
+  saveButton.addEventListener('click', (event) => {
+    // we don't want the form to submit (since we will lose form state)
+    e.preventDefault();
+
+    // find the user object in our data
+    const id = document.querySelector('#userID').value;
+
+    for (let i=0; i<users.length; i++) {
+        // found relevant user, so update object at this index and redisplay
+        if (users[i].id == id) {
+
+            users[i].user.firstname = document.querySelector('#firstname').value;
+            users[i].user.lastname = document.querySelector('#lastname').value;
+            users[i].user.address = document.querySelector('#address').value;
+            users[i].user.city = document.querySelector('#city').value;
+            users[i].user.email = document.querySelector('#email').value;     
+
+            generateUserList(users, stocks);
+        }
+    }
+  });
+  
 
 
 
